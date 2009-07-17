@@ -55,7 +55,7 @@ Statyczna biblioteka enet.
 %{__make}
 
 # generate shared library by hand (not implemented in Makefile)
-%{__cxx} %{rpmldflags} %{rpmcflags} -shared host.o list.o callbacks.o packet.o peer.o protocol.o unix.o win32.o -o libenet.so
+%{__cc} %{rpmldflags} %{rpmcflags} -shared host.o list.o callbacks.o packet.o peer.o protocol.o unix.o win32.o -o libenet.so
 
 %install
 rm -rf $RPM_BUILD_ROOT
