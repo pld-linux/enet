@@ -1,14 +1,12 @@
-#
-# TODO: pl summary and desc
-#
 Summary:	Portable UDP networking library
+Summary(pl.UTF-8):	Przenośna biblioteka dla UDP
 Name:		enet
-Version:	1.2
+Version:	1.2.1
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://enet.bespin.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	e0d9f468d8c6f6bfd07083b3b40f5e69
+# Source0-md5:	6a6749b94219316a3628f59318b31d45
 URL:		http://enet.bespin.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -19,6 +17,12 @@ ENet's purpose is to provide a relatively thin, simple and robust
 network communication layer on top of UDP (User Datagram Protocol).
 The primary feature it provides is optional reliable, in-order
 delivery of packets.
+
+%description -l pl.UTF-8
+Celem ENeta jest dostarczenie relatywnie lekkiej, prostej oraz
+wydajnej sieciowej warstwy komunikacyjnej dla UDP (Datagramowego
+Protokołu Użytkownika). Podstawową jego zaletą jest niezawodne
+dostarczanie pakietów w odpowiedniej kolejności.
 
 %package devel
 Summary:	Header files for enet library
@@ -45,7 +49,7 @@ Static enet library.
 Statyczna biblioteka enet.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 
 %build
 %{__aclocal}
