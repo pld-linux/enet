@@ -10,6 +10,7 @@ Source0:	http://enet.bespin.org/download/%{name}-%{version}.tar.gz
 URL:		http://enet.bespin.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -52,7 +53,8 @@ Statyczna biblioteka enet.
 %setup -q
 
 %build
-%{__aclocal}
+%{__libtoolize}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure
