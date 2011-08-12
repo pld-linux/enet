@@ -1,12 +1,12 @@
 Summary:	Portable UDP networking library
 Summary(pl.UTF-8):	Przenośna biblioteka dla UDP
 Name:		enet
-Version:	1.3.2
+Version:	1.3.3
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://enet.bespin.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	8a8778956b8c0a97a2c9e1e553d9edbe
+# Source0-md5:	4b0b69377fd4511e82e5f0921a942e59
 URL:		http://enet.bespin.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
