@@ -1,14 +1,15 @@
 Summary:	Portable UDP networking library
 Summary(pl.UTF-8):	Przenośna biblioteka dla UDP
 Name:		enet
-Version:	1.3.3
-Release:	2
+Version:	1.3.18
+Release:	1
 License:	MIT
 Group:		Libraries
+#Source0Download: http://enet.bespin.org/Downloads.html
 Source0:	http://enet.bespin.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	4b0b69377fd4511e82e5f0921a942e59
+# Source0-md5:	0b52430b05f42ff867a44a8ce5df2012
 URL:		http://enet.bespin.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -62,10 +63,12 @@ Statyczna biblioteka enet.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_libdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libenet.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -76,17 +79,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog docs *.txt
-%attr(755,root,root) %{_libdir}/libenet.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/libenet.so.1
+%attr(755,root,root) %{_libdir}/libenet.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libenet.so.7
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libenet.so
-%dir %{_includedir}/enet/
-%{_includedir}/enet/*.h
-%{_libdir}/libenet.la
+%{_includedir}/enet
 %{_pkgconfigdir}/libenet.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libenet.a
